@@ -48,6 +48,12 @@ variable "external_database" {
   default     = false
 }
 
+variable "dns_zone_name" {
+  type = "string"
+  default = "push-zone"
+  description = "dns zone managing push environments"
+}
+
 /******************
  * OpsMan Options *
  ******************/

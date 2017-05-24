@@ -30,10 +30,6 @@ output "optional_ops_manager_public_ip" {
   value = "${google_compute_instance.optional-ops-manager.network_interface.0.access_config.0.assigned_nat_ip}"
 }
 
-output "env_dns_zone_name_servers" {
-  value = "${google_dns_managed_zone.env_dns_zone.name_servers}"
-}
-
 output "project" {
   value = "${var.project}"
 }
@@ -164,8 +160,4 @@ output "ops_manager_ssh_public_key" {
 
 output "cf_ws_address" {
   value = "${google_compute_address.cf-ws.address}"
-}
-
-output "dns_managed_zone" {
-  value = "${google_dns_managed_zone.env_dns_zone.name}"
 }
