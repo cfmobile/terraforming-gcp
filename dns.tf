@@ -20,7 +20,7 @@ resource "google_dns_record_set" "optional-ops-manager-dns" {
 }
 
 resource "google_dns_record_set" "wildcard-sys-dns" {
-  name = "*.sys.${var.env_name}.${var.dns_suffix}."
+  name = "*.${var.env_name}.${var.dns_suffix}."
   type = "A"
   ttl  = 300
 
