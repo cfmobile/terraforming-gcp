@@ -49,16 +49,6 @@ resource "google_dns_record_set" "loggregator-sys-dns" {
   rrdatas = ["${google_compute_address.cf-ws.address}"]
 }
 
-resource "google_dns_record_set" "wildcard-apps-dns" {
-  name = "*.apps.${var.env_name}.${var.dns_suffix}."
-  type = "A"
-  ttl  = 300
-
-  managed_zone = "${var.dns_zone_name}"
-
-  rrdatas = ["${google_compute_global_address.cf.address}"]
-}
-
 resource "google_dns_record_set" "wildcard-ws-dns" {
   name = "*.ws.${var.env_name}.${var.dns_suffix}."
   type = "A"
