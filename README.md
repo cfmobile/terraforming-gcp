@@ -113,9 +113,9 @@ SERVICE_ACCOUNT_KEY
 - tcp.*$env_name*.*$dns_suffix*: Points at the TCP load balancer in front of the TCP router.
 
 ## Isolation Segments (optional)
-- istolation_segment *(optional)* When set to "true" creates HTTP load-balancer across 3 zones for isolation segments.
-- isoseg_ssl_cert: *(optional)* SSL certificate for HTTP load balancer configuration. Can be either trusted or self-signed.
-- isoseg_ssl_cert_private_key:  *(optional)* Private key for above SSL certificate.
+- isolation_segment *(optional)* When set to "true" creates HTTP load-balancer across 3 zones for isolation segments.
+- iso_seg_ssl_cert: *(optional)* SSL certificate for HTTP load balancer configuration. Can be either trusted or self-signed.
+- iso_seg_ssl_cert_private_key:  *(optional)* Private key for above SSL certificate.
 
 ## Cloud SQL Configuration (optional)
 - external_database: *(optional)* When set to "true", a cloud SQL instance will be deployed for the Ops Manager and ERT.
@@ -125,6 +125,9 @@ SERVICE_ACCOUNT_KEY
 
 #### ERT
 - ert_sql_db_host: *(optional)* The host the user can connect from. Can be an IP address. Changing this forces a new resource to be created.
+
+## Elastic Runtime Cloud Controller's Google Cloud Storage Buckets (optional)
+- create_gcs_buckets: *(optional)* When set to "false", buckets will not be created for Elastic Runtime Cloud Controller. Defaults to "true".
 
 ## Running
 

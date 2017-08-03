@@ -25,6 +25,11 @@ variable "optional_opsman_image_url" {
   default     = ""
 }
 
+variable "opsman_machine_type" {
+  type    = "string"
+  default = "n1-standard-2"
+}
+
 variable "service_account_key" {
   type = "string"
 }
@@ -93,4 +98,13 @@ variable "iso_seg_ssl_cert_private_key" {
   type        = "string"
   description = "ssl certificate private key content"
   default     = ""
+}
+
+/********************************
+ * Google Cloud Storage Options *
+ ********************************/
+
+variable "create_gcs_buckets" {
+  description = "create Google Storage Buckets for Elastic Runtime Cloud Controller's file storage"
+  default     = true
 }
