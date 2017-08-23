@@ -19,7 +19,7 @@ resource "google_dns_record_set" "optional-ops-manager-dns" {
   rrdatas = ["${google_compute_instance.optional-ops-manager.network_interface.0.access_config.0.assigned_nat_ip}"]
 }
 
-resource "google_dns_record_set" "wildcard-sys-dns" {
+resource "google_dns_record_set" "wildcard-dns" {
   name = "*.${var.env_name}.${var.dns_suffix}."
   type = "A"
   ttl  = 300
@@ -29,8 +29,8 @@ resource "google_dns_record_set" "wildcard-sys-dns" {
   rrdatas = ["${google_compute_global_address.cf.address}"]
 }
 
-resource "google_dns_record_set" "doppler-sys-dns" {
-  name = "doppler.sys.${var.env_name}.${var.dns_suffix}."
+resource "google_dns_record_set" "doppler-dns" {
+  name = "doppler.${var.env_name}.${var.dns_suffix}."
   type = "A"
   ttl  = 300
 
@@ -39,8 +39,8 @@ resource "google_dns_record_set" "doppler-sys-dns" {
   rrdatas = ["${google_compute_address.cf-ws.address}"]
 }
 
-resource "google_dns_record_set" "loggregator-sys-dns" {
-  name = "loggregator.sys.${var.env_name}.${var.dns_suffix}."
+resource "google_dns_record_set" "loggregator-dns" {
+  name = "loggregator.${var.env_name}.${var.dns_suffix}."
   type = "A"
   ttl  = 300
 
@@ -59,8 +59,8 @@ resource "google_dns_record_set" "wildcard-ws-dns" {
   rrdatas = ["${google_compute_address.cf-ws.address}"]
 }
 
-resource "google_dns_record_set" "app-ssh-dns" {
-  name = "ssh.sys.${var.env_name}.${var.dns_suffix}."
+resource "google_dns_record_set" "ssh-dns" {
+  name = "ssh.${var.env_name}.${var.dns_suffix}."
   type = "A"
   ttl  = 300
 
